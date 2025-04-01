@@ -12,10 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: 'secret-key', resave: false, saveUninitialized: true }));
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://pinapativallabha:<db_password>@cluster0.6e5h7yn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
-
+mongoose.connect('mongodb+srv://pinapativallabha:<db_password>@cluster0.6e5h7yn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB connected'))
+.catch((err) => console.log('MongoDB connection error: ', err));
 // User Registration
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
