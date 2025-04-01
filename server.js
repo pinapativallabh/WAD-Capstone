@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: 'secret-key', resave: false, saveUninitialized: true }));
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/authDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://pinapativallabha:<db_password>@cluster0.6e5h7yn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
