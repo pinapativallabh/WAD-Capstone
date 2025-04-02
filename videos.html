@@ -3,81 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Selection</title>
+    <title>WebXR Adventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #121212;
-            color: white;
-            padding: 50px;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease-in-out;
         }
-        .container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .video-container {
+            display: none;
+            margin-top: 20px;
         }
         .option {
-            padding: 15px 30px;
+            padding: 10px 20px;
             background-color: #1e88e5;
             border: none;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 5px;
             transition: 0.3s;
         }
         .option:hover {
             background-color: #1565c0;
         }
-        .video-container {
-            margin-top: 30px;
-            display: none;
-        }
     </style>
-</head>
-<body>
-    <h1>Select Video Type</h1>
-    <div class="container">
-        <button class="option" onclick="load360Videos()">360 Videos</button>
-        <button class="option" onclick="load4KVideos()">4K Videos</button>
-    </div>
-
-    <div id="videoChoices" class="video-container">
-        <h2>Choose a Video</h2>
-        <div id="options"></div>
-    </div>
-
-    <div id="videoPlayer" class="video-container">
-        <iframe id="player" width="800" height="450" frameborder="0" allowfullscreen></iframe>
-    </div>
-
     <script>
+        function changeBackground(image) {
+            document.body.style.backgroundImage = `url('${image}')`;
+        }
+        function resetBackground() {
+            document.body.style.backgroundImage = "url('background.jpg')";
+        }
         function load360Videos() {
             const options = [
                 { name: "Space", path: "videos/space.mp4" },
-                { name: "mountains", path: "videos/mountains.mp4" },
+                { name: "Mountains", path: "videos/mountains.mp4" },
                 { name: "Underwater", path: "videos/underwater.mp4" }
             ];
             displayOptions(options, true);
         }
-
         function load4KVideos() {
             const options = [
                 { name: "Avatar", link: "https://www.youtube.com/embed/5PSNL1qE6VY" },
                 { name: "Interstellar", link: "https://www.youtube.com/embed/zSWdZVtXT7E" },
-                { name: "Nature", link: "https://www.youtube.com/embed/V0HCZbVyK-I" },
-                { name: "Godzilla x Kong", link: "https://www.youtube.com/embed/TIkkX-X-GKw" },
-                { name: "Avengers", link: "https://www.youtube.com/embed/eOrNdBpGMv8" }
+                { name: "Nature", link: "https://www.youtube.com/embed/V0HCZbVyK-I" }
             ];
             displayOptions(options, false);
         }
-
         function displayOptions(options, isLocal) {
             document.getElementById("videoChoices").style.display = "block";
             const container = document.getElementById("options");
             container.innerHTML = "";
-
             options.forEach(option => {
                 let btn = document.createElement("button");
                 btn.className = "option";
@@ -86,17 +65,43 @@
                 container.appendChild(btn);
             });
         }
-
         function playVideo(option, isLocal) {
             document.getElementById("videoPlayer").style.display = "block";
-            let player = document.getElementById("player");
-            
-            if (isLocal) {
-                player.src = option.path;
-            } else {
-                player.src = option.link;
-            }
+            let playerContainer = document.getElementById("playerContainer");
+            playerContainer.innerHTML = isLocal ? 
+                `<video controls width="800" height="450"><source src="${option.path}" type="video/mp4"></video>` :
+                `<iframe width="800" height="450" src="${option.link}" frameborder="0" allowfullscreen></iframe>`;
         }
     </script>
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gray-900 bg-cover bg-center bg-no-repeat">
+    <div class="text-center bg-black bg-opacity-70 p-10 rounded-lg shadow-2xl backdrop-blur-md">
+        <h1 class="text-5xl font-extrabold text-white mb-4 animate-pulse">Welcome to the WebXR Universe</h1>
+        <p class="text-lg text-gray-300 mb-8">Step into an immersive world where adventure awaits. Explore a vibrant virtual zoo or dive into breathtaking 360° experiences.</p>
+        <div class="flex space-x-6 justify-center">
+            <a href="vrZoo.html" 
+               class="px-8 py-4 bg-blue-900 text-white font-bold text-xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:bg-blue-500" 
+               onmouseover="changeBackground('zoo-background.jpg')" 
+               onmouseout="resetBackground()">
+                🦁 Enter Virtual Zoo
+            </a>
+            <button class="px-8 py-4 bg-red-800 text-white font-bold text-xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:bg-orange-500" 
+               onmouseover="changeBackground('video-background.jpg')" 
+               onmouseout="resetBackground()" onclick="load360Videos()">
+                🎥 Watch 360° Video
+            </button>
+            <button class="px-8 py-4 bg-green-700 text-white font-bold text-xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:bg-green-500" 
+               onclick="load4KVideos()">
+                🎬 Watch 4K Videos
+            </button>
+        </div>
+        <div id="videoChoices" class="video-container">
+            <h2 class="text-white mt-5">Choose a Video</h2>
+            <div id="options" class="mt-3"></div>
+        </div>
+        <div id="videoPlayer" class="video-container">
+            <div id="playerContainer"></div>
+        </div>
+    </div>
 </body>
 </html>
