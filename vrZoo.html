@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Zoo (VR)</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Sky and Ground -->
+        <a-sky src="images/sky.jpg"></a-sky>
+        <a-plane position="0 0 -10" rotation="-90 0 0" width="100" height="100" color="#228B22"></a-plane>
+
+        <a-sound src="Sounds/jungle.mp3" autoplay="true" loop="true" volume="0.8"></a-sound>
+        <!-- Directional Light -->
+        <a-light type="directional" position="0 5 10" intensity="0.8"></a-light>
+        <a-light type="ambient" intensity="0.4"></a-light>
+
+        <!-- Welcome Sign -->
+        <a-text value="Welcome to the Virtual Zoo!" position="0 5 -6" align="center" color="purple" width="20"></a-text>
+
+        <!-- Floating Animal Info Texts -->
+        <a-text value="Lion" position="-2 2 -5" align="center" color="white" width="4"></a-text>
+        <a-text value="Zebra" position="2 3 -5" align="center" color="white" width="4" ></a-text>
+        <a-text value="Elephant" position="-6 3 -6" align="center" color="white" width="4" ></a-text>
+        <a-text value="Bear" position="6 2.5 -6" align="center" color="white" width="4"></a-text>
+
+        <!-- Floating Animal Info Texts -->
+        <a-text value="Tiger" position="2.5 2 4" rotation="0 180 0" align="center" color="white" width="4"></a-text>
+        <a-text value="Deer" position="-2 2 4" rotation="0 180 0" align="center" color="white" width="4" ></a-text>
+        <a-text value="Giraffe" position="5.5 2 3.5" align="center" rotation="0 180 0" scale="1.5 1.5 1.5" color="white" width="4" ></a-text>
+        <a-text value="Rhino" position="-5 2 5" rotation="0 180 0" align="center" color="white" width="4"></a-text>
+        <!-- Circular Fences (5 Small Fences in Circular Shape) -->
+        <a-entity geometry="primitive: box; width: .5; height: 1.5; depth: 30" material="color: brown" position="7 1.5 -7" rotation="0 0 0"></a-entity>
+        <a-entity geometry="primitive: box; width: .5; height: 1.5; depth: 30" material="color: brown" position="-7 1.5 -7" rotation="0 180 0"></a-entity>
+        <a-entity geometry="primitive: box; width: .5; height: 1.5; depth: 30" material="color: brown" position="7 1.5 7" rotation="0 90 0"></a-entity>
+        <a-entity geometry="primitive: box; width: .5; height: 1.5; depth: 30" material="color: brown" position="-7 1.5 7" rotation="0 -90 0"></a-entity>
+        <a-entity geometry="primitive: box; width: 5; height: 1; depth: 1" material="color: brown" position="0 1.5 -14"></a-entity>
+
+        <!-- Trees outside the fence to give a natural look -->
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="-10 2.5 -15"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="-10 4 -15"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="10 2 15"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="10 3.5 15"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="15 2 -5"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="15 3.5 -5"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="-15 2 5"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="-15 3.5 5"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="-3 2 -10"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="-3 3.5 -10"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="3 2 -12"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="3 3.5 -12"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="-5 2 -14"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="-5 3.5 -14"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="0 2 -13"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="0 3.5 -13"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="-6 2 1"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="-6 3.5 1"></a-entity>
+
+        <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3" material="color: brown" position="6 2 -1"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" material="color: green" position="6 3.5 -1"></a-entity>
+
+        <!-- Fun Elements (Fountain, Rocks, or Other Playful Objects) -->
+        <a-box position="0 0 -5" color="red" depth="1" height="1" width="2"></a-box>
+        <a-sphere position="0 1.1 -5" scale="1.25 1.25 1.25" color="blue" radius="0.5"></a-sphere> <!-- Little water fountain -->
+
+        <a-box position="0.1 0 5" color="yellow" depth="1" height="1" width="2"></a-box>
+        <a-sphere position="0.1 1.1 5" scale="1.25 1.25 1.25" color="blue" radius="0.5"></a-sphere> <!-- Little water fountain -->
+
+        <a-entity position="0.1 3 5" rotation="0 180 0">  <!-- Adjusted position above the yellow fun element -->
+            <a-plane width="3" height="2" color="black" position="0 0 0"></a-plane>
+            <a-text value="Which animal is the largest land mammal?" position="0 0.8 0" align="center" color="white" width="2.5"></a-text>
+        
+            <a-entity geometry="primitive: plane; width: 1.5; height: 0.4"
+                      material="color: blue"
+                      position="0 0.4 0"
+                      text="value: Elephant; align: center; color: white; width: 1.4"
+                      class="clickable"
+                      event-set__click="_event: click; _target: #feedback; text.value: ✅ Correct!">
+            </a-entity>
+        
+            <a-entity geometry="primitive: plane; width: 1.5; height: 0.4"
+                      material="color: blue"
+                      position="0 -0.2 0"
+                      text="value: Lion; align: center; color: white; width: 1.4"
+                      class="clickable"
+                      event-set__click="_event: click; _target: #feedback; text.value: ❌ Try Again!">
+            </a-entity>
+        
+            <a-entity geometry="primitive: plane; width: 1.5; height: 0.4"
+                      material="color: blue"
+                      position="0 -0.8 0"
+                      text="value: Zebra; align: center; color: white; width: 1.4"
+                      class="clickable"
+                      event-set__click="_event: click; _target: #feedback; text.value: ❌ Try Again!">
+            </a-entity>
+        
+            <a-text id="feedback" value="" position="0 -1.5 0" align="center" color="yellow" width="2"></a-text>
+        </a-entity>
+        
+
+        <!-- Animals (Original) -->
+        <a-entity id="lion" gltf-model="Models/lion/scene.gltf" position="-2 0.75 -5" scale="2 2 2" 
+            sound="src: Sounds/lion-roar.mp3; on: click" class="clickable"></a-entity>
+
+        <a-entity id="zebra" gltf-model="Models/zebra/scene.gltf" position="2 0 -6" scale="125 125 125"
+            sound="src: Sounds/zebra.mp3; on: click" class="clickable"></a-entity>
+
+        <a-entity id="elephant" gltf-model="Models/elephant/scene.gltf" position="-6 0 -7" scale="2 2 2"
+            sound="src: Sounds/elephant.mp3; on: click" class="clickable"></a-entity>
+
+        <a-entity id="bear" gltf-model="Models/bear/scene.gltf" position="6 0 -7" rotation="0 270 0" scale="1.5 1.5 1.5"
+            sound="src: Sounds/bear.mp3; on: click" class="clickable"></a-entity>
+
+        <!-- New Animals (Opposite of the Original Ones) -->
+        <a-entity id="Tiger" gltf-model="Models/tiger/scene.gltf" position="3 0.75 5" rotation="0 -160 0" scale="2 2 2"
+            rotation="0 180 0" sound="src: Sounds/lion-roar.mp3; on: click" class="clickable"></a-entity>
+
+        <a-entity id="deer" gltf-model="Models/deer/scene.gltf" position="-2 0 5" scale="1.25 1.25 1.25"
+            rotation="0 180 0" sound="src: Sounds/zebra.mp3; on: click" class="clickable"></a-entity>
+
+        <a-entity id="giraffe" gltf-model="Models/giraffe/scene.gltf" position="6 2.5 5" rotation="0 180 0" scale="0.5 0.5 0.5"
+            rotation="0 180 0" sound="src: Sounds/elephant.mp3; on: click" class="clickable"></a-entity>
+
+        <a-entity id="Rhino" gltf-model="Models/rhino/scene.gltf" position="-5 0 5" rotation="0 180 0" scale="1 1 1"
+            sound="src: Sounds/bear.mp3; on: click" class="clickable"></a-entity>
+
+        <!-- VR Hand Controllers for Movement and Interaction -->
+        <a-entity id="leftHand" hand-controls="left" laser-controls="hand: left" teleport-controls="button: trigger"></a-entity>
+        <a-entity id="rightHand" hand-controls="right" laser-controls="hand: right" teleport-controls="button: trigger"></a-entity>
+
+        <!-- Camera and Movement Controls -->
+        <a-entity id="camera" camera wasd-controls="acceleration: 10" look-controls="pointerLockEnabled: false" position="0 1.6 0">
+          <a-cursor></a-cursor>
+        </a-entity>
+
+        <!-- Teleportation System -->
+        <a-entity teleport-controls="button: trigger"></a-entity>
+    </a-scene>
+
+    <script>
+        // Function to show animal info
+        function showAnimalInfo(name, description) {
+            alert(name + "\n\n" + description);
+        }
+
+        // Add click event listeners for all animals
+        document.querySelector("#lion").addEventListener("click", function () {
+            showAnimalInfo("Lion", "Lions are the kings of the jungle.");
+        });
+
+        document.querySelector("#zebra").addEventListener("click", function () {
+            showAnimalInfo("Zebra", "Zebras have unique black-and-white stripes.");
+        });
+
+        document.querySelector("#elephant").addEventListener("click", function () {
+            showAnimalInfo("Elephant", "Elephants are the largest land animals.");
+        });
+
+        document.querySelector("#bear").addEventListener("click", function () {
+            showAnimalInfo("Bear", "Bears are strong and adaptable creatures.");
+        });
+
+        document.querySelector("#lion2").addEventListener("click", function () {
+            showAnimalInfo("Lion", "Lions are the kings of the jungle.");
+        });
+
+        document.querySelector("#zebra2").addEventListener("click", function () {
+            showAnimalInfo("Zebra", "Zebras have unique black-and-white stripes.");
+        });
+
+        document.querySelector("#elephant2").addEventListener("click", function () {
+            showAnimalInfo("Elephant", "Elephants are the largest land animals.");
+        });
+
+        document.querySelector("#bear2").addEventListener("click", function () {
+            showAnimalInfo("Bear", "Bears are strong and adaptable creatures.");
+        });
+
+    </script>
+</body>
+</html>

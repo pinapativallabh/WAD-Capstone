@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+            padding: 50px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .option {
+            padding: 15px 30px;
+            background-color: #1e88e5;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .option:hover {
+            background-color: #1565c0;
+        }
+        .video-container {
+            margin-top: 30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Video Type</h1>
+    <div class="container">
+        <button class="option" onclick="load360Videos()">360 Videos</button>
+        <button class="option" onclick="load4KVideos()">4K Videos</button>
+    </div>
+
+    <div id="videoChoices" class="video-container">
+        <h2>Choose a Video</h2>
+        <div id="options"></div>
+    </div>
+
+    <div id="videoPlayer" class="video-container">
+        <iframe id="player" width="800" height="450" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function load360Videos() {
+            const options = [
+                { name: "Space", path: "videos/space.mp4" },
+                { name: "mountains", path: "videos/mountains.mp4" },
+                { name: "Underwater", path: "videos/underwater.mp4" }
+            ];
+            displayOptions(options, true);
+        }
+
+        function load4KVideos() {
+            const options = [
+                { name: "Avatar", link: "https://www.youtube.com/embed/5PSNL1qE6VY" },
+                { name: "Interstellar", link: "https://www.youtube.com/embed/zSWdZVtXT7E" },
+                { name: "Nature", link: "https://www.youtube.com/embed/V0HCZbVyK-I" },
+                { name: "Godzilla x Kong", link: "https://www.youtube.com/embed/TIkkX-X-GKw" },
+                { name: "Avengers", link: "https://www.youtube.com/embed/eOrNdBpGMv8" }
+            ];
+            displayOptions(options, false);
+        }
+
+        function displayOptions(options, isLocal) {
+            document.getElementById("videoChoices").style.display = "block";
+            const container = document.getElementById("options");
+            container.innerHTML = "";
+
+            options.forEach(option => {
+                let btn = document.createElement("button");
+                btn.className = "option";
+                btn.innerText = option.name;
+                btn.onclick = () => playVideo(option, isLocal);
+                container.appendChild(btn);
+            });
+        }
+
+        function playVideo(option, isLocal) {
+            document.getElementById("videoPlayer").style.display = "block";
+            let player = document.getElementById("player");
+            
+            if (isLocal) {
+                player.src = option.path;
+            } else {
+                player.src = option.link;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Zebra
+* source:	https://sketchfab.com/3d-models/zebra-bd7258ee007b4e0fb521abb74bfa99d0
+* author:	Direct Dimensions (https://sketchfab.com/dirdim)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Zebra" (https://sketchfab.com/3d-models/zebra-bd7258ee007b4e0fb521abb74bfa99d0) by Direct Dimensions (https://sketchfab.com/dirdim) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

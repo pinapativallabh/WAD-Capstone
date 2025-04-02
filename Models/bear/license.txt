@@ -1,0 +1,11 @@
+Model Information:
+* title:	The-disappearing-polar-bear
+* source:	https://sketchfab.com/3d-models/the-disappearing-polar-bear-a7f053c63a4d42f49ea9d02a2c5e5f4d
+* author:	eyork4633 (https://sketchfab.com/eyork4633)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "The-disappearing-polar-bear" (https://sketchfab.com/3d-models/the-disappearing-polar-bear-a7f053c63a4d42f49ea9d02a2c5e5f4d) by eyork4633 (https://sketchfab.com/eyork4633) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
