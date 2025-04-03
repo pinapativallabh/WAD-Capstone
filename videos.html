@@ -11,6 +11,9 @@
             background-color: #121212;
             color: white;
             padding: 50px;
+            background-size: cover;
+            background-position: center;
+            transition: background 0.5s ease-in-out;
         }
         .container {
             display: flex;
@@ -53,8 +56,8 @@
 <body>
     <h1>Select Video Type</h1>
     <div class="container">
-        <button class="option" onclick="load360Videos()">🎥 360 Videos</button>
-        <button class="option" onclick="load4KVideos()">📺 4K Videos</button>
+        <button class="option" onmouseover="changeBackground('space.jpg')" onclick="load360Videos()">🎥 360 Videos</button>
+        <button class="option" onmouseover="changeBackground('avatar.jpg')" onclick="load4KVideos()">📺 4K Videos</button>
     </div>
 
     <div id="videoChoices" class="video-container">
@@ -69,20 +72,20 @@
     <script>
         function load360Videos() {
             const options = [
-                { name: "🌌 Space", path: "Videos/space.mp4" },
-                { name: "🏔️ Mountains", path: "Videos/mountains.mp4" },
-                { name: "🌊 Underwater", path: "Videos/underwater.mp4" }
+                { name: "🌌 Space", path: "Videos/space.mp4", image: "space.jpg" },
+                { name: "🏔️ Mountains", path: "Videos/mountains.mp4", image: "mountains.jpg" },
+                { name: "🌊 Underwater", path: "Videos/underwater.mp4", image: "underwater.jpg" }
             ];
             displayOptions(options, true);
         }
 
         function load4KVideos() {
             const options = [
-                { name: "🌍 Avatar", link: "https://www.youtube.com/embed/5PSNL1qE6VY" },
-                { name: "🚀 Interstellar", link: "https://www.youtube.com/embed/zSWdZVtXT7E" },
-                { name: "🌿 Nature", link: "https://www.youtube.com/embed/LXb3EKWsInQ" },
-                { name: "🦖 Godzilla x Kong", link: "https://www.youtube.com/embed/odM92ap8_c0" },
-                { name: "🦸 Avengers", link: "https://www.youtube.com/embed/eOrNdBpGMv8" }
+                { name: "🌍 Avatar", link: "https://www.youtube.com/embed/5PSNL1qE6VY", image: "avatar.jpg" },
+                { name: "🚀 Interstellar", link: "https://www.youtube.com/embed/zSWdZVtXT7E", image: "interstellar.jpg" },
+                { name: "🌿 Nature", link: "https://www.youtube.com/embed/V0HCZbVyK-I", image: "nature.jpg" },
+                { name: "🦖 Godzilla x Kong", link: "https://www.youtube.com/embed/TIkkX-X-GKw", image: "godzilla_kong.jpg" },
+                { name: "🦸 Avengers", link: "https://www.youtube.com/embed/eOrNdBpGMv8", image: "avengers.jpg" }
             ];
             displayOptions(options, false);
         }
@@ -96,6 +99,7 @@
                 let btn = document.createElement("button");
                 btn.className = "option";
                 btn.innerText = option.name;
+                btn.onmouseover = () => changeBackground(option.image);
                 btn.onclick = () => playVideo(option, isLocal);
                 container.appendChild(btn);
             });
@@ -110,6 +114,10 @@
             } else {
                 player.src = option.link;
             }
+        }
+
+        function changeBackground(image) {
+            document.body.style.backgroundImage = `url('${image}')`;
         }
     </script>
 </body>
